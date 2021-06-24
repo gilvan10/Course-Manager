@@ -1,0 +1,85 @@
+<!--Está dando erro em course-info.component.ts -->
+<!--<h2>Course Id = {{ courseId }}</h2> -->
+
+<!--Aula 6 da parte 2-->
+<!-- <h2> Course Info</h2> -->
+
+<!--  <hr> -->
+
+<!--Recurso da váriavel de template #courseForm. Todos os atributos serão colocados nesta variável courseForm-->
+  <form #courseForm="ngForm">
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Name:</label>
+    
+        <div class="col-sm-10">   
+            <!--required que dizer campo obrigatório-->
+            <!--Variavel de template #courseName. Vai estar passando os atributo de ngModel para essa variável de template. com essa label e  input já consegue mostrar o nome do curso através do botão edit. (Muito bom)-->
+            <!--ngClass vai estar passando uma classe dinâmica para validações com bootstrap. Primeira classe em aspas simples que é o is isvalid. e os : courseName.invalid é a condição que está classe será adicionada, caso a váriavel de template seja invalida, o input ficará vermelho (true)-->
+            
+            <input [(ngModel)]="course.name" required name="name" #courseName="ngModel" [ngClass] = "{'is-invalid' : courseName.invalid}" class="form-control">  
+            <!--Trabalhando com a váriavel de template-->
+            <!-- explicação {{ courseName.value }} aparece o nome  {{ courseName.valid }} Se for valida aparece true, {{ courseName.invalid }} Se for invalida aparece true-->
+            
+            <!--Classe do bootstrap que se conecta com a de cima caso seja invalido o input(campo)-->
+             <div class="invalid-feedback">
+                <span>Course name is required</span>
+            </div>
+        </div>
+    
+    </div> 
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Price:</label>
+    
+        <div class="col-sm-10">
+            
+            <input [(ngModel)]="course.price" required name="price" #coursePrice="ngModel" type="number"
+                    [ngClass] = "{'is-invalid' : coursePrice.invalid}" class="form-control">
+           
+            <div class="invalid-feedback">
+                <span>Course price is required</span>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Rating:</label>
+    
+        <div class="col-sm-10">
+            
+            <input [(ngModel)]="course.rating" required name="rating" #courseRating="ngModel" type="number"
+                    [ngClass] = "{'is-invalid' : courseRating.invalid}" class="form-control">
+            
+            <div class="invalid-feedback">
+                <span>Course rating is required</span>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">Description:</label>
+    
+        <div class="col-sm-10">
+            
+            <textarea [(ngModel)]="course.description" required name="description" #courseDescription="ngModel" 
+                        [ngClass] = "{'is-invalid' : courseDescription.invalid}" class="form-control"> </textarea>
+            
+            <div class="invalid-feedback">
+                <span>Course description is required</span>
+            </div>
+        </div>
+    
+    </div>  
+    
+    <!--Será desabilitado o botão Save caso a formulário esteja invalido. Quando quiser fazer referencia a variável de template ou componente colocar []-->
+    <!-- <button [disabled]="courseForm.invalid" (click)="save()" class="btn btn-primary mr-2">Save</button> -->
+    <button [routerLink]="['/courses']" class="btn btn-secondery">Back</button>
+
+</form>  
