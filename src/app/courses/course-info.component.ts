@@ -38,8 +38,8 @@ export class CourseInfoComponent implements OnInit {
         return this.course = this.courseService.retrieveById(this.courseId);
     }
 
-    //save(): void {
-        //this.courseService.save(this.course);
-    //}
+    save(): void {
+        this.courseService.save(this.course);
+    }
 
 }

@@ -17,12 +17,39 @@ export class CourseService {
 
     //video 6 trabalhando com formulário e template
     retrieveById(id: number): Course{ 
-          //console.log(id);
+
+        var TESTES: Course [] = [
+
+            {
+                id: 1,
+                name: 'Angular: CLI',
+                releaseDate: 'November 2, 2019',
+                description: 'Neste curso, os alunos irão obter um grande conhecimento nos principais recursos do CLI.',
+                duration: 120,
+                code: 'XLF-1212',
+                rating: 3,
+                price: 12.99,
+                imageUrl: '/assets/images/cli.png',
+            },
+            {
+                id: 2,
+                name: 'Angular: Forms',
+                releaseDate: 'November 4, 2019',
+                description: 'Neste curso, os alunos irão obter um conhecimento aprofundado sobre os recursos disponíveis no módulo de Forms.',
+                duration: 80,
+                code: 'DWQ-3412',
+                rating: 3.5,
+                price: 24.99,
+                imageUrl: '/assets/images/forms.png',
+            },
+        ];
+          console.log(id);
           let j: number = 0;
           //O find vai fazer uma interação nas linhas do array e assim que ele encontar a linha que atende a a primeira condição retorna a linha(ou objeto)
           //const c = COURSES.map((course) => {if(course.id === id){ return course;}})
-          const c = COURSES.find(course => course.id === id);
+          const c = TESTES.find((courseIterator :  Course) => courseIterator.id === id);
           console.log(c);
+          return COURSES[id-1];
           //for(let i = 0; i <  COURSES.length; i++){ 
              //if(COURSES[i].id === id){
                // j = i;
@@ -30,7 +57,7 @@ export class CourseService {
             // }
                  
           //}
-          return COURSES[j];
+          //return COURSES[j];
          //return COURSES.find((courseIterator :  Course) => courseIterator.id === id);
          //return COURSES.find(COURSES => COURSES.id === id);
          //console.log(id);
@@ -38,12 +65,12 @@ export class CourseService {
          //return COURSES.find(COURSES.id === id);
     }
 
-    //save(course: Course) : void {
-         //if(course.id) { //findIndex() retorna o indice do objeto procurado
-            //const index = COURSES.findIndex((courseIterator :  Course) == courseIterator.id === course.id);
-            //COURSES[index] = course;
-         //}
-    //}
+    save(course: Course) : void {
+         if(course.id) { //findIndex() retorna o indice do objeto procurado
+            const index = COURSES.findIndex((courseIterator :  Course) => courseIterator.id === course.id);
+            COURSES[index] = course;
+         }
+    }
 
 }
 

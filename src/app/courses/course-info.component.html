@@ -79,7 +79,7 @@
     </div>  
     
     <!--Será desabilitado o botão Save caso a formulário esteja invalido. Quando quiser fazer referencia a variável de template ou componente colocar []-->
-    <!-- <button [disabled]="courseForm.invalid" (click)="save()" class="btn btn-primary mr-2">Save</button> -->
+    <button [disabled]="courseForm.invalid" (click)="save()" class="btn btn-primary">Save</button> 
     <button [routerLink]="['/courses']" class="btn btn-secondery">Back</button>
 
 </form>  
